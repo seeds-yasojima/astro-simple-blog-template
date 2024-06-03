@@ -1,0 +1,52 @@
+---
+import { ChevronRightIcon } from "@radix-ui/react-icons";
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+
+interface Props {
+  title: string;
+  body: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+
+const tags = [
+  {
+    name: "個人開発",
+    href: "#",
+  },
+  {
+    name: "Webアプリ",
+    href: "#",
+  },
+  {
+    name: "React",
+    href: "#",
+  },
+  {
+    name: "PHP",
+    href: "#",
+  },
+];
+---
+
+<article>
+  <Card className="rounded-sm">
+    <a href={href} class="p-4 hover:opacity-50 block">
+      <p class="text-muted-foreground text-sm">2024年4月10日</p>
+      <h2 class="mt-1 mb-3 font-semibold text-xl">
+        {title}
+      </h2>
+      <div class="space-x-2">
+        {
+          tags.map((tag) => (
+            <Badge variant="secondary" className="font-normal">
+              {tag.name}
+            </Badge>
+          ))
+        }
+      </div>
+    </a>
+  </Card>
+</article>

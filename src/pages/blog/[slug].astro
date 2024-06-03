@@ -1,0 +1,74 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Button } from "@/components/ui/button.tsx";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+export function getStaticPaths() {
+  const blogs = [...Array(11).keys()];
+
+  return blogs.map((_, index) => {
+    return {
+      params: {
+        slug: index + 1,
+      },
+    };
+  });
+}
+
+const tags = [
+  {
+    name: "個人開発",
+    href: "#",
+  },
+  {
+    name: "Webアプリ",
+    href: "#",
+  },
+  {
+    name: "React",
+    href: "#",
+  },
+  {
+    name: "PHP",
+    href: "#",
+  },
+];
+
+const { slug } = Astro.params;
+---
+
+<Layout title="Blog Page">
+  <main>
+    <div class="container my-8 w-full max-w-[1000px]">
+      <section>
+        <h1 class="text-3xl font-bold text-left md:text-center">
+          タイトルがここに入ります。sulg：{slug}
+        </h1>
+        <div
+          class="text-muted-foreground text-sm mt-1.5 text-left md:text-center"
+        >
+          2024月4月10日
+        </div>
+        <div class="space-x-2 mt-3 text-left md:text-center">
+          {
+            tags.map((tag) => (
+              <Badge
+                variant="secondary"
+                className="font-normal bg-slate-200 hover:bg-slate-200"
+              >
+                {tag.name}
+              </Badge>
+            ))
+          }
+        </div>
+
+        <Card className="mt-4 p-4 rounded-sm">
+          <div>
+            この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+          </div>
+        </Card>
+      </section>
+    </div>
+  </main>
+</Layout>
