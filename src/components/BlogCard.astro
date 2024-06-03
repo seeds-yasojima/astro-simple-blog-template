@@ -1,52 +1,50 @@
 ---
-import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
+import type { Blog } from "@/services/blogs";
+import { Image } from "astro:assets";
+import { formatDate } from "@/lib/utils";
 
 interface Props {
-  title: string;
-  body: string;
-  href: string;
+  content: Blog;
 }
 
-const { href, title, body } = Astro.props;
-
-const tags = [
-  {
-    name: "個人開発",
-    href: "#",
-  },
-  {
-    name: "Webアプリ",
-    href: "#",
-  },
-  {
-    name: "React",
-    href: "#",
-  },
-  {
-    name: "PHP",
-    href: "#",
-  },
-];
+const { content } = Astro.props;
 ---
 
 <article>
   <Card className="rounded-sm">
-    <a href={href} class="p-4 hover:opacity-50 block">
-      <p class="text-muted-foreground text-sm">2024年4月10日</p>
-      <h2 class="mt-1 mb-3 font-semibold text-xl">
-        {title}
-      </h2>
-      <div class="space-x-2">
-        {
-          tags.map((tag) => (
-            <Badge variant="secondary" className="font-normal">
-              {tag.name}
-            </Badge>
-          ))
-        }
+    <a href={`/blog/${content.id}`} class="p-4 hover:opacity-50 flex gap-3">
+      <div class="grow">
+        <p class="text-muted-foreground text-sm">
+          {formatDate(content.publishedAt)}
+        </p>
+        <h2 class="mt-1 mb-3 font-semibold text-xl">
+          {content.title}
+        </h2>
+        <div class="space-x-2">
+          {
+            content.categories.map((category) => (
+              <Badge variant="secondary" className="font-normal">
+                {category.name}
+              </Badge>
+            ))
+          }
+        </div>
       </div>
+      {
+        !!content.eyecatch && (
+          <div>
+            <Image
+              src={content.eyecatch.url}
+              alt={content.title}
+              height={content.eyecatch.height}
+              width={content.eyecatch.width}
+              class="object-cover rounded-sm h-[100px] w-auto"
+            />
+          </div>
+        )
+      }
     </a>
   </Card>
 </article>
