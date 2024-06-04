@@ -5,34 +5,117 @@ import Layout from "@/layouts/Layout.astro";
 <Layout title="このブログについて">
   <main>
     <div class="container my-8 w-full max-w-[1000px]">
-      <h1 class="text-3xl font-bold">このサイトについて</h1>
-      <div class="mt-6 prose prose-slate">
-        <p>
-          このサイトは、私が日々学んだことや興味を持ったことを書き留めるためのブログです。<br
-          />
-          また、技術的なことやプログラミングに関する情報を発信していきます。<br
-          />
-          どうぞよろしくお願いいたします。
-        </p>
-        <ul>
-          <li>
-            このサイトは、Astroという静的サイトジェネレーターを使って作成されています。<br
+      <section>
+        <h1 class="text-3xl font-bold">このサイトについて</h1>
+        <div class="prose prose-slate mt-6">
+          <p>
+            このサイトは、私が日々学んだことや興味を持ったことを書き留めるためのブログです。<br
             />
-            Astroは、Reactを使ってコンポーネントを作成し、ビルド時に静的なHTMLに変換することができるツールです。
-          </li>
-          <li>
-            CMSは、microCMSを使っています。<br />
-            microCMSは、APIを使ってコンテンツを取得することができるヘッドレスCMSです。<br
+            また、技術的なことやプログラミングに関する情報を発信していきます。<br
             />
-          </li>
-        </ul>
-        <h2>これからの予定</h2>
-        <ul>
-          <li>カテゴリ一覧の作成</li>
-          <li>ブログ一覧にページネーションを実装</li>
-          <li>SEO強化</li>
-        </ul>
-      </div>
+            どうぞよろしくお願いいたします。
+          </p>
+          <ul>
+            <li>
+              このサイトは、Astroという静的サイトジェネレーターを使って作成されています。<br
+              />
+              Astroは、Reactを使ってコンポーネントを作成し、ビルド時に静的なHTMLに変換することができるツールです。
+            </li>
+            <li>
+              CMSは、microCMSを使っています。<br />
+              microCMSは、APIを使ってコンテンツを取得することができるヘッドレスCMSです。<br
+              />
+            </li>
+          </ul>
+          <h2>これからの予定</h2>
+          <ul>
+            <li>カテゴリ一覧の作成</li>
+            <li>ブログ一覧にページネーションを実装</li>
+            <li>SEO強化</li>
+          </ul>
+          <h2>Githubリンク</h2>
+          <a
+            href="https://github.com/seeds-yasojima/astro-simple-blog-template"
+            target="_blank"
+            rel="noopener noreferrer nofollow">astro-simple-blog-template</a
+          >
+
+          <h2>主な技術構成について</h2>
+          <dl>
+            <dt>UIフレームワーク</dt>
+            <dd>
+              <ul>
+                <li>
+                  <a
+                    href="https://tailwindcss.com/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">Tailwind.css</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://ui.shadcn.com/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
+                  >
+                    shadcn/ui
+                  </a>
+                </li>
+              </ul>
+            </dd>
+            <dt>フロントエンド</dt>
+            <dd>
+              <ul>
+                <li>
+                  <a
+                    href="https://astro.build/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">Astro</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://ja.react.dev/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">React</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.typescriptlang.org/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">TypeScript</a
+                  >
+                </li>
+              </ul>
+            </dd>
+            <dt>CMS</dt>
+            <dd>
+              <ul>
+                <li>
+                  <a
+                    href="https://microcms.io/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">microCMS</a
+                  >
+                </li>
+              </ul>
+            </dd>
+            <dt>ホスティングサービス</dt>
+            <dd>
+              <ul>
+                <li>
+                  <a
+                    href="https://aws.amazon.com/jp/amplify/"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow">AWS Amplify</a
+                  >
+                </li>
+              </ul>
+            </dd>
+          </dl>
+        </div>
+      </section>
     </div>
   </main>
 </Layout>
