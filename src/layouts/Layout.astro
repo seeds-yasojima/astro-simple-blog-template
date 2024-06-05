@@ -1,9 +1,12 @@
 ---
 interface Props {
   title: string;
+  isHome?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, isHome = false } = Astro.props;
+const headerTitle = "Hello Simple Astro Blog";
+import { cn } from "@/lib/utils";
 import "@/styles/index.css";
 ---
 
@@ -18,6 +21,34 @@ import "@/styles/index.css";
     <title>{title}</title>
   </head>
   <body class="bg-accent">
+    <header class="">
+      <div class="container max-w-[1000px] flex items-center h-10">
+        {
+          !isHome && (
+            <a href="/" class={cn("shrink-0")}>
+              <span class="font-bold">{headerTitle}</span>
+              <span class="pl-1">&#128640;</span>
+            </a>
+          )
+        }
+
+        <div class="ml-auto space-x-3 hidden md:block">
+          <a
+            href="/category"
+            class="text-sm text-muted-foreground hover:underline"
+          >
+            カテゴリ一覧
+          </a>
+          <a
+            href="/about"
+            class="text-sm text-muted-foreground hover:underline"
+          >
+            このサイトについて
+          </a>
+        </div>
+      </div>
+    </header>
+
     <main>
       <slot />
     </main>

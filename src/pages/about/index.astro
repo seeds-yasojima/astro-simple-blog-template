@@ -1,14 +1,37 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Button } from "@/components/ui/button.tsx";
 ---
 
 <Layout title="このブログについて">
   <main>
     <div class="container my-8 w-full max-w-[1000px]">
-      <h1 class="text-3xl font-bold">このブログについて</h1>
-      <div class="mt-6">
-        <Button>ホーム</Button>
+      <h1 class="text-3xl font-bold">このサイトについて</h1>
+      <div class="mt-6 prose prose-slate">
+        <p>
+          このサイトは、私が日々学んだことや興味を持ったことを書き留めるためのブログです。<br
+          />
+          また、技術的なことやプログラミングに関する情報を発信していきます。<br
+          />
+          どうぞよろしくお願いいたします。
+        </p>
+        <ul>
+          <li>
+            このサイトは、Astroという静的サイトジェネレーターを使って作成されています。<br
+            />
+            Astroは、Reactを使ってコンポーネントを作成し、ビルド時に静的なHTMLに変換することができるツールです。
+          </li>
+          <li>
+            CMSは、microCMSを使っています。<br />
+            microCMSは、APIを使ってコンテンツを取得することができるヘッドレスCMSです。<br
+            />
+          </li>
+        </ul>
+        <h2>これからの予定</h2>
+        <ul>
+          <li>カテゴリ一覧の作成</li>
+          <li>ブログ一覧にページネーションを実装</li>
+          <li>SEO強化</li>
+        </ul>
       </div>
     </div>
   </main>
