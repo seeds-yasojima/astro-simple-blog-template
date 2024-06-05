@@ -2,20 +2,26 @@
 import Layout from "@/layouts/Layout.astro";
 import BlogCard from "@/components/BlogCard.astro";
 
+const blogs = [...Array(11).keys()];
 const title = "Hello Simple Astro Blog";
-
-import { getBlogs } from "@/services/blogs";
-const response = await getBlogs();
 ---
 
-<Layout title={title} isHome>
+<Layout title={title}>
   <div class="container my-8 w-full max-w-[1000px]">
     <h1 class="text-3xl font-bold text-center">
-      <div class="text-7xl mb-4">&#128640;</div>
+      <div class="text-5xl mb-1">&#128640;</div>
       {title}
     </h1>
-    <div class="mt-10 space-y-4">
-      {response.contents.map((content) => <BlogCard content={content} />)}
+    <div class="mt-4 space-y-4">
+      {
+        blogs.map((_, index) => (
+          <BlogCard
+            title={`ブログ${index + 1}開設しました。`}
+            body="この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。"
+            href={`/blog/${index + 1}`}
+          />
+        ))
+      }
     </div>
   </div>
 </Layout>
