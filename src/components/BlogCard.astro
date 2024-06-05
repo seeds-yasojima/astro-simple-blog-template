@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import type { Blog } from "@/services/blogs";
+import { Image } from "astro:assets";
 import { formatDate } from "@/lib/utils";
 
 interface Props {
@@ -12,14 +12,14 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<Card className="rounded-sm">
-  <article>
-    <a href={`/blog/${content.id}`} class="flex gap-3 p-4 hover:opacity-50">
+<article>
+  <Card className="rounded-sm">
+    <a href={`/blog/${content.id}`} class="p-4 hover:opacity-50 flex gap-3">
       <div class="grow">
-        <p class="text-sm text-muted-foreground">
+        <p class="text-muted-foreground text-sm">
           {formatDate(content.publishedAt)}
         </p>
-        <h2 class="mb-3 mt-1 text-xl font-semibold">
+        <h2 class="mt-1 mb-3 font-semibold text-xl">
           {content.title}
         </h2>
         <div class="space-x-2">
@@ -40,11 +40,11 @@ const { content } = Astro.props;
               alt={content.title}
               height={content.eyecatch.height}
               width={content.eyecatch.width}
-              class="h-[100px] w-auto rounded-sm object-cover"
+              class="object-cover rounded-sm h-[100px] w-auto"
             />
           </div>
         )
       }
     </a>
-  </article>
-</Card>
+  </Card>
+</article>
