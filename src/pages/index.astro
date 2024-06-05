@@ -14,9 +14,6 @@ const response = await getBlogs();
       <div class="text-7xl mb-4">&#128640;</div>
       {title}
     </h1>
-    <div class="text-center text-muted-foreground text-sm mt-2">
-      Astro製のシンプルなブログ
-    </div>
     <div class="mt-10 space-y-4">
       {response.contents.map((content) => <BlogCard content={content} />)}
     </div>
