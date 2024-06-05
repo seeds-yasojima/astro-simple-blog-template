@@ -18,19 +18,11 @@ import "@/styles/index.css";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <!-- OGP -->
-    <meta name="og:title" content={title} />
-    <meta name="og:description" content="Astro製のシンプルなブログ" />
-    <meta name="og:image" content="" />
-    <!-- <meta name="og:url" content="" /> -->
-    <meta name="og:site_name" content={headerTitle} />
-    <meta name="og:locale" content="ja_JP" />
-    <meta name="og:type" content="blog" />
     <title>{title}</title>
   </head>
   <body class="bg-accent">
     <header class="">
-      <div class="container flex h-10 max-w-[1000px] items-center">
+      <div class="container max-w-[1000px] flex items-center h-10">
         {
           !isHome && (
             <a href="/" class={cn("shrink-0")}>
@@ -40,7 +32,7 @@ import "@/styles/index.css";
           )
         }
 
-        <div class="ml-auto hidden space-x-3 md:block">
+        <div class="ml-auto space-x-3 hidden md:block">
           <a
             href="/category"
             class="text-sm text-muted-foreground hover:underline"
