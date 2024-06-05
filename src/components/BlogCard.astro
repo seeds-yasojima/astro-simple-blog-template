@@ -33,7 +33,7 @@ const { content } = Astro.props;
         </div>
       </div>
       {
-        !!content.eyecatch && (
+        !!content?.eyecatch && (
           <div>
             <Image
               src={content.eyecatch.url}
