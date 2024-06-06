@@ -1,4 +1,4 @@
-export default defineConfig({
+module.exports = {
   root: true,
   /** env（環境）は、コードが実行される環境を指定します。 */
   env: { browser: true, es2020: true },
@@ -11,7 +11,12 @@ export default defineConfig({
     project: "./tsconfig.json",
   },
   /** ignorePatterns（無視パターン）は、指定されたファイルを無視します。 */
-  ignorePatterns: ["dist", "eslint.config.js", ".prettierrc.mjs"],
+  ignorePatterns: [
+    "dist",
+    ".eslintrc.cjs",
+    ".prettierrc.json",
+    "tailwind.config.mjs",
+  ],
   /** plugins（プラグイン）は、ESLintに追加の機能を提供するプラグインを指定します。 */
   plugins: ["@typescript-eslint"],
   /** extends（拡張）は、指定された設定を拡張します。 */
@@ -35,4 +40,4 @@ export default defineConfig({
       rules: {},
     },
   ],
-});
+};
