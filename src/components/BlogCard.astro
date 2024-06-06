@@ -33,11 +33,11 @@ const { content } = Astro.props;
         </div>
       </div>
       <Image
-        src={content.eyecatch?.url || '/img/no-image-tmb.png'}
-        height={content.eyecatch?.height || '700'}
-        width={content.eyecatch?.width || '483'}
+        src={content.eyecatch?.url || "/img/no-image-tmb.png"}
+        height={content.eyecatch?.height || "700"}
+        width={content.eyecatch?.width || "483"}
         alt={content.title}
-        class="w-[160px] h-auto rounded-sm object-cover hidden md:block aspect-video"
+        class="hidden aspect-video h-auto w-[160px] rounded-sm object-cover md:block"
       />
     </a>
   </article>
