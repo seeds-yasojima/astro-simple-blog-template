@@ -5,6 +5,7 @@ import { getBlogDetail, getBlogs, type Blog } from "@/services/blogs";
 import { Image } from "astro:assets";
 import { formatDate } from "@/lib/utils";
 import CategoryBadge from "@/components/CategoryBadge.astro";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
@@ -42,7 +43,7 @@ const blog = await getBlogDetail(slug as string);
         }
 
         <div class="mb-8">
-          <h1 class="text-left text-3xl font-bold md:text-center">
+          <h1 class="text-left text-2xl font-bold md:text-center md:text-3xl">
             {blog.title}
           </h1>
           <div
@@ -51,7 +52,9 @@ const blog = await getBlogDetail(slug as string);
             {formatDate(blog.publishedAt)}
           </div>
 
-          <div class="mt-3 space-x-2 text-left md:text-center">
+          <div
+            class="mt-3 flex flex-wrap justify-start gap-2 md:justify-center"
+          >
             {
               blog.categories.map((category) => (
                 <CategoryBadge categoryName={category.name} id={category.id} />
@@ -68,7 +71,9 @@ const blog = await getBlogDetail(slug as string);
         </Card>
       </article>
       <div class="mt-6 flex justify-center">
-        <a href="/" class="text-center text-muted-foreground"> トップへ戻る </a>
+        <a href="/" class={buttonVariants({ variant: "outline" })}
+          >トップへ戻る
+        </a>
       </div>
     </div>
   </main>

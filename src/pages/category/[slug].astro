@@ -32,7 +32,7 @@ const category = await getCategoryDetail(slug as string);
     <div class="container my-8 w-full max-w-[1000px]">
       <h1 class="text-3xl font-bold">『{category.name}』 の記事一覧</h1>
       <div class="mt-6">
-        <div class="space-y-2">
+        <div class="space-y-4">
           {blogs.contents.map((blog) => <BlogCard content={blog} />)}
         </div>
       </div>

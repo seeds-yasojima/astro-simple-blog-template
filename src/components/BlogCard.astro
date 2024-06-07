@@ -14,31 +14,38 @@ const { content } = Astro.props;
 
 <Card className="rounded-sm">
   <article>
-    <a href={`/blog/${content.id}`} class="flex gap-3 p-4 hover:opacity-50">
+    <a
+      href={`/blog/${content.id}`}
+      class="flex gap-4 p-3 hover:opacity-50 md:p-4"
+    >
       <div class="grow">
         <p class="text-sm text-muted-foreground">
           {formatDate(content.publishedAt)}
         </p>
-        <h2 class="mb-3 mt-1 text-xl font-semibold">
+        <h2 class="text-md mt-1 font-semibold md:text-xl">
           {content.title}
         </h2>
-        <div class="space-x-2">
-          {
-            content.categories.map((category) => (
-              <Badge variant="secondary" className="font-normal">
-                # {category.name}
-              </Badge>
-            ))
-          }
-        </div>
+        {
+          content.categories.length > 0 && (
+            <div class="mt-3 flex flex-wrap gap-2">
+              {content.categories.map((category) => (
+                <Badge variant="secondary" className="font-normal">
+                  # {category.name}
+                </Badge>
+              ))}
+            </div>
+          )
+        }
       </div>
-      <Image
-        src={content.eyecatch?.url || "/img/no-image-tmb.png"}
-        height={content.eyecatch?.height || "700"}
-        width={content.eyecatch?.width || "483"}
-        alt={content.title}
-        class="hidden aspect-video h-auto w-[160px] rounded-sm object-cover md:block"
-      />
+      <div class="hidden shrink-0 md:block">
+        <Image
+          src={content.eyecatch?.url || "/img/no-image-tmb.png"}
+          height={content.eyecatch?.height || "700"}
+          width={content.eyecatch?.width || "483"}
+          alt={content.title}
+          class="aspect-video h-auto w-[100px] rounded-sm object-cover md:w-[160px]"
+        />
+      </div>
     </a>
   </article>
 </Card>
