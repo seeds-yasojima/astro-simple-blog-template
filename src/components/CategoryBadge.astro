@@ -1,0 +1,24 @@
+---
+import { badgeVariants } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import type { Categories } from "@/services/categories";
+
+interface Props {
+  id: Categories["id"];
+  categoryName: Categories["name"];
+}
+
+const { id, categoryName } = Astro.props;
+---
+
+<a
+  href={`/category/${id}`}
+  class={cn(
+    badgeVariants({
+      variant: "secondary",
+    }),
+    "bg-slate-200 font-normal hover:bg-slate-300"
+  )}
+>
+  # {categoryName}
+</a>

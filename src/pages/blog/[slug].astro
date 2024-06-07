@@ -1,11 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { getBlogDetail, getBlogs, type Blog } from "@/services/blogs";
 import { Image } from "astro:assets";
 import { formatDate } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import CategoryBadge from "@/components/CategoryBadge.astro";
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
@@ -55,12 +54,7 @@ const blog = await getBlogDetail(slug as string);
           <div class="mt-3 space-x-2 text-left md:text-center">
             {
               blog.categories.map((category) => (
-                <Badge
-                  variant="secondary"
-                  className="font-normal bg-slate-200 hover:bg-slate-200"
-                >
-                  {category.name}
-                </Badge>
+                <CategoryBadge categoryName={category.name} id={category.id} />
               ))
             }
           </div>
