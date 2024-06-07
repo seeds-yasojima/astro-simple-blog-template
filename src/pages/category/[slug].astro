@@ -1,0 +1,41 @@
+---
+import BlogCard from "@/components/BlogCard.astro";
+import Layout from "@/layouts/Layout.astro";
+
+import { getBlogs } from "@/services/blogs";
+import {
+  getCategories,
+  getCategoryDetail,
+  type Categories,
+} from "@/services/categories";
+
+// 詳細記事ページの全パスを取得
+export async function getStaticPaths() {
+  const response = await getCategories();
+  return response.contents.map((content: Categories) => ({
+    params: {
+      slug: content.id,
+    },
+  }));
+}
+
+const { slug } = Astro.params;
+const blogs = await getBlogs({
+  filters: `categories[contains]${slug}`,
+});
+
+const category = await getCategoryDetail(slug as string);
+---
+
+<Layout title="カテゴリ一覧">
+  <main>
+    <div class="container my-8 w-full max-w-[1000px]">
+      <h1 class="text-3xl font-bold">『{category.name}』 の記事一覧</h1>
+      <div class="mt-6">
+        <div class="space-y-2">
+          {blogs.contents.map((blog) => <BlogCard content={blog} />)}
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
