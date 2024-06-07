@@ -5,14 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-import { format } from "date-fns";
-import { ja } from "date-fns/locale";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
 
-/**
- * 日付をフォーマットする関数
- * @param date フォーマットしたい日付
- * @returns フォーマットされた日付文字列
- */
 export function formatDate(date: string): string {
-  return format(date, "yyyy年MM月dd日", { locale: ja });
+  dayjs.extend(utc);
+  dayjs.extend(timezone);
+
+  return dayjs.utc(date).tz("Asia/Tokyo").format("YYYY年MM月DD日");
 }
