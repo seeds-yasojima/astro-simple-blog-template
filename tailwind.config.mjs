@@ -70,6 +70,18 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: "100%",
+            blockquote: {
+              fontStyle: "italic",
+              borderLeftColor: "#e2e8f0",
+              backgroundColor: "hsl(var(--muted))",
+              padding: "0.25rem 1rem",
+              "& p::before": {
+                content: "none",
+              },
+              "& p::after": {
+                content: "none",
+              },
+            },
           },
         },
       }),
