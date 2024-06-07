@@ -1,7 +1,6 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
 import Layout from "@/layouts/Layout.astro";
-
 import { getBlogs } from "@/services/blogs";
 import {
   getCategories,
@@ -23,7 +22,6 @@ const { slug } = Astro.params;
 const blogs = await getBlogs({
   filters: `categories[contains]${slug}`,
 });
-
 const category = await getCategoryDetail(slug as string);
 ---
 

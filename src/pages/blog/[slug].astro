@@ -1,11 +1,11 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { Card } from "@/components/ui/card";
-import { getBlogDetail, getBlogs, type Blog } from "@/services/blogs";
 import { Image } from "astro:assets";
-import { formatDate } from "@/lib/utils";
+import Layout from "@/layouts/Layout.astro";
 import CategoryBadge from "@/components/CategoryBadge.astro";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
+import { getBlogDetail, getBlogs, type Blog } from "@/services/blogs";
+import { formatDate } from "@/lib/utils";
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {

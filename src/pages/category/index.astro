@@ -1,10 +1,8 @@
 ---
 import CategoryBadge from "@/components/CategoryBadge.astro";
-import { badgeVariants } from "@/components/ui/badge";
 import Layout from "@/layouts/Layout.astro";
-import { cn } from "@/lib/utils";
-
 import { getCategories } from "@/services/categories";
+
 const response = await getCategories();
 ---
 
