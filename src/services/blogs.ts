@@ -1,12 +1,8 @@
 import { client } from "@/lib/microcms";
 import type { MicroCMSQueries } from "microcms-js-sdk";
+import type { CommonContentsProps, ResponseProps } from "@/types";
 
-export type Blog = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
+export type Blog = CommonContentsProps & {
   title: string;
   content: string;
   eyecatch: {
@@ -24,12 +20,7 @@ export type Blog = {
   }[];
 };
 
-export type BlogResponse = {
-  totalCount: number;
-  offset: number;
-  limit: number;
-  contents: Blog[];
-};
+export type BlogResponse = ResponseProps<Blog>;
 
 /**
  * ブログ一覧取得
