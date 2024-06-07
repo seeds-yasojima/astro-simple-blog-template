@@ -2,8 +2,9 @@
 import Layout from "@/layouts/Layout.astro";
 import BlogCard from "@/components/BlogCard.astro";
 import { getBlogs } from "@/services/blogs";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 
-const title = "Hello Simple Astro Blog";
+const title = SITE_TITLE;
 const response = await getBlogs();
 ---
 
@@ -14,7 +15,7 @@ const response = await getBlogs();
       {title}
     </h1>
     <div class="mt-2 text-center text-sm text-muted-foreground">
-      Astro製のシンプルなブログ
+      {SITE_DESCRIPTION}
     </div>
     <div class="mt-10 space-y-4">
       {response.contents.map((content) => <BlogCard content={content} />)}

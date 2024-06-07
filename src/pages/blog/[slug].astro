@@ -22,7 +22,7 @@ const { slug } = Astro.params;
 const blog = await getBlogDetail(slug as string);
 ---
 
-<Layout title="Blog Page">
+<Layout title={blog.title}>
   <main>
     <div class="container mb-10 mt-3 w-full max-w-[1000px] md:mb-14 md:mt-8">
       <article>
