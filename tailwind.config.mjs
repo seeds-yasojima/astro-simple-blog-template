@@ -11,6 +11,11 @@ export default {
         "2xl": "1200px",
       },
     },
+    fontFamily: {
+      sans: [
+        '"Helvetica Neue",arial,"Hiragino Kaku Gothic ProN","Hiragino Sans","BIZ UDPGothic",meiryo,sans-serif"',
+      ],
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
