@@ -1,5 +1,5 @@
 ---
-import BlogCard from "@/components/BlogCard.astro";
+import BlogArticle from "@/components/BlogArticle.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getBlogs } from "@/services/blogs";
 import {
@@ -31,7 +31,7 @@ const category = await getCategoryDetail(slug as string);
       <h1 class="text-3xl font-bold">『{category.name}』 の記事一覧</h1>
       <div class="mt-6">
         <div class="space-y-4">
-          {blogs.contents.map((blog) => <BlogCard content={blog} />)}
+          {blogs.contents.map((blog) => <BlogArticle content={blog} />)}
         </div>
       </div>
     </div>

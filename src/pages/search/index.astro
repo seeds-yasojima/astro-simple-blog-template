@@ -1,0 +1,10 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SearchBlog from "@/components/SearchBlog.tsx";
+
+const title = "検索結果";
+---
+
+<Layout title={title}>
+  <SearchBlog client:only="react" />
+</Layout>
