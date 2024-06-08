@@ -1,6 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import BlogCard from "@/components/BlogCard.astro";
+import BlogArticle from "@/components/BlogArticle.astro";
+import SearchInputForm from "@/components/SearchInputForm.tsx";
 import { getBlogs } from "@/services/blogs";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 
@@ -17,8 +18,11 @@ const response = await getBlogs();
     <div class="mt-2 text-center text-sm text-muted-foreground">
       {SITE_DESCRIPTION}
     </div>
-    <div class="mt-10 space-y-4">
-      {response.contents.map((content) => <BlogCard content={content} />)}
+    <div class="mt-8">
+      <SearchInputForm client:visible />
+    </div>
+    <div class="mb-24 mt-14 space-y-4">
+      {response.contents.map((content) => <BlogArticle content={content} />)}
     </div>
   </div>
 </Layout>

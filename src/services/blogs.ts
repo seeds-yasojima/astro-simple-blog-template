@@ -1,6 +1,7 @@
-import { client } from "@/lib/microcms";
-import type { MicroCMSQueries } from "microcms-js-sdk";
 import type { CommonContentsProps, ResponseProps } from "@/types";
+import type { MicroCMSQueries } from "microcms-js-sdk";
+
+import { client } from "@/lib/microcms";
 
 export type Blog = CommonContentsProps & {
   title: string;
