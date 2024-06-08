@@ -2,6 +2,7 @@
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import { cn } from "@/lib/utils";
 import "@/styles/index.css";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -32,6 +33,7 @@ const headerTitle = "Hello Simple Astro Blog";
     <meta name="og:locale" content="ja_JP" />
     <meta name="og:type" content="blog" />
     <title>{isHome ? SITE_TITLE : `${title} | ${SITE_TITLE}`}</title>
+    <ViewTransitions />
   </head>
   <body class="bg-accent">
     <header class="">
