@@ -1,5 +1,13 @@
-
 {
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "printWidth": 80,
+  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "semi": true,
+  "endOfLine": "lf",
   "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
   "overrides": [
     {
