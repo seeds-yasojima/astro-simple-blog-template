@@ -39,6 +39,7 @@ const { content } = Astro.props;
       </div>
       <div class="hidden shrink-0 md:block">
         <Image
+          transition:name={content.id}
           src={content.eyecatch?.url || "/img/no-image-tmb.png"}
           height={content.eyecatch?.height || "700"}
           width={content.eyecatch?.width || "483"}
