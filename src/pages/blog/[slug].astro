@@ -31,6 +31,7 @@ const blog = await getBlogDetail(slug as string);
             <div class="mb-8">
               <div class="mx-auto max-w-[600px]">
                 <Image
+                  transition:name={`eyecatch_${blog.id}`}
                   src={blog.eyecatch.url}
                   alt={blog.title}
                   height={blog.eyecatch.height}
