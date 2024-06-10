@@ -1,11 +1,11 @@
 ---
-import { Image } from "astro:assets";
-import Layout from "@/layouts/Layout.astro";
-import CategoryBadge from "@/components/CategoryBadge.astro";
-import { Card } from "@/components/ui/card";
-import { buttonVariants } from "@/components/ui/button";
-import { getBlogDetail, getBlogs, type Blog } from "@/services/blogs";
-import { formatDate } from "@/lib/utils";
+import { Image } from 'astro:assets';
+import Layout from '@/layouts/Layout.astro';
+import CategoryBadge from '@/components/CategoryBadge.astro';
+import { Card } from '@/components/ui/card';
+import { buttonVariants } from '@/components/ui/button';
+import { getBlogDetail, getBlogs, type Blog } from '@/services/blogs';
+import { formatDate } from '@/lib/utils';
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
@@ -28,7 +28,7 @@ const blog = await getBlogDetail(slug as string);
       <article>
         {
           !!blog?.eyecatch?.url && (
-            <div class="mb-8">
+            <div>
               <div class="mx-auto max-w-[600px]">
                 <Image
                   transition:name={`eyecatch_${blog.id}`}
@@ -42,8 +42,7 @@ const blog = await getBlogDetail(slug as string);
             </div>
           )
         }
-
-        <div class="mb-8">
+        <div class="mt-8">
           <h1 class="text-left text-2xl font-bold md:text-center md:text-3xl">
             {blog.title}
           </h1>
@@ -63,8 +62,7 @@ const blog = await getBlogDetail(slug as string);
             }
           </div>
         </div>
-
-        <Card className="rounded-sm p-4 md:p-8">
+        <Card className="mt-8 rounded-sm p-4 md:p-8">
           <div
             class="prose prose-slate prose-h2:border-b prose-h2:pb-2 prose-th:text-left"
             set:html={blog.content}
@@ -72,7 +70,7 @@ const blog = await getBlogDetail(slug as string);
         </Card>
       </article>
       <div class="mt-6 flex justify-center">
-        <a href="/" class={buttonVariants({ variant: "outline" })}
+        <a href="/" class={buttonVariants({ variant: 'outline' })}
           >トップへ戻る
         </a>
       </div>

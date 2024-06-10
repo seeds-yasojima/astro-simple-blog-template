@@ -1,0 +1,41 @@
+---
+import { SITE_TITLE } from '@/consts';
+
+interface Props {
+  isHome: boolean;
+}
+
+const { isHome } = Astro.props;
+const navigations = [
+  {
+    title: 'カテゴリ一覧',
+    href: '/category',
+  },
+  {
+    title: 'このサイトについて',
+    href: '/about',
+  },
+];
+---
+
+<header>
+  <div class="container flex h-10 max-w-[1000px] items-center">
+    {
+      !isHome && (
+        <a href="/" class="shrink-0 space-x-1">
+          <span class="font-bold">{SITE_TITLE}</span>
+          <span>&#128640;</span>
+        </a>
+      )
+    }
+    <div class="ml-auto hidden space-x-3 md:block">
+      {
+        navigations.map(({ title, href }) => (
+          <a href={href} class="text-sm text-muted-foreground hover:underline">
+            {title}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</header>
